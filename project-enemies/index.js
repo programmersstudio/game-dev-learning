@@ -35,7 +35,7 @@ class Enemy {
     this.speedModifier = speedModifier;
     this.speed = gameSpeed * this.speedModifier;
     this.frames = 0;
-    this.flapSpeed = Math.floor(Math.random() * 3 + 1);
+    this.flapSpeed = Math.floor(Math.random() * 1 + 1);
   }
 
   update() {
@@ -49,11 +49,12 @@ class Enemy {
     // this.x = Math.floor(this.x - this.speed); // to eliminate decimal values
     this.x += Math.random() * 5 - 2.5;
     this.y += Math.random() * 5 - 2.5;
-    console.log(gameFrame);
-    console.log(this.flapSpeed);
-    console.log(gameFrame % this.flapSpeed);
+    // console.log(gameFrame);
+    // console.log(this.flapSpeed);
+    // console.log(gameFrame % this.flapSpeed);
     if (gameFrame % this.flapSpeed === 0) {
-      this.frames >= 4 ? 0 : this.frames++;
+      this.frames >= 4 ? (this.frames = 0) : this.frames++;
+      console.log("FRAMES : ", this.frames);
     }
   }
 
